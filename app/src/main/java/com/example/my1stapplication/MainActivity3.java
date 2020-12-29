@@ -3,6 +3,7 @@ package com.example.my1stapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,7 +43,28 @@ public class MainActivity3 extends AppCompatActivity {
         Animation rotateanimation = AnimationUtils.loadAnimation(this, R.anim.rotateanimation);
         view.startAnimation(rotateanimation);
 
+        String email = emailText.getText().toString();
+        String password = passText.getText().toString();
 
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Toast.makeText(MainActivity3.this, "Registered successfully.",
+                                    Toast.LENGTH_SHORT).show();
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+
+                       } else {
+                            // If sign in fails, display a message to the user.
+                           Toast.makeText(MainActivity3.this, "Registration failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
     }
 
     public void login(View view) {
@@ -62,6 +84,10 @@ public class MainActivity3 extends AppCompatActivity {
                             Toast.makeText(MainActivity3.this, "Login worked.",
                                     Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
+
+                            Intent intent = new Intent(MainActivity3.this, MainActivity.class);
+                            // intent.putExtra(KEY,String.valueOf(format(lastResult)));
+                            startActivity(intent);
 
                         } else {
                             // If sign in fails, display a message to the user.
