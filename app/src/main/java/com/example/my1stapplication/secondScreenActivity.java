@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,6 +58,9 @@ public class secondScreenActivity extends AppCompatActivity {
     }
 
     public void funcOperator(View view) {
+
+        Animation blinkanimation = AnimationUtils.loadAnimation(this, R.anim.blinkanimation);
+        view.startAnimation(blinkanimation);
 
         Button b = (Button) view;
 
@@ -124,9 +129,14 @@ public class secondScreenActivity extends AppCompatActivity {
     }
 
     public void funcFactorial(View view) {
+
+
+        Animation blinkanimation = AnimationUtils.loadAnimation(this, R.anim.blinkanimation);
+        view.startAnimation(blinkanimation);
+
         firstNum = Double.parseDouble(textView.getText().toString());
 
-        if((firstNum % 2 == 0)||((firstNum % 2) - 1 == 0)) {
+        if ((firstNum % 2 == 0) || ((firstNum % 2) - 1 == 0)) {
             long fact = 1;
             for (int i = 2; i <= firstNum; i++) {
                 fact = fact * i;
@@ -140,7 +150,11 @@ public class secondScreenActivity extends AppCompatActivity {
             Toast.makeText(this,"This number is not a positive integer so a factorial is not possible at the moment.",Toast.LENGTH_LONG).show();
         }
     }
-    public void funcPI(View view){
+    public void funcPI(View view) {
+
+        Animation blinkanimation = AnimationUtils.loadAnimation(this, R.anim.blinkanimation);
+        view.startAnimation(blinkanimation);
+
         result = Math.PI;
         textView.setText(format(result));
         after_calc = true;
@@ -162,6 +176,10 @@ public class secondScreenActivity extends AppCompatActivity {
     }
 
     public void funcSin(View view) {
+
+        Animation blinkanimation = AnimationUtils.loadAnimation(this, R.anim.blinkanimation);
+        view.startAnimation(blinkanimation);
+
         firstNum = Double.parseDouble(textView.getText().toString());
         double rad = Math.toRadians(firstNum);
         result = Math.sin(rad);
@@ -171,6 +189,11 @@ public class secondScreenActivity extends AppCompatActivity {
     }
 
     public void funcCos(View view) {
+
+
+        Animation blinkanimation = AnimationUtils.loadAnimation(this, R.anim.blinkanimation);
+        view.startAnimation(blinkanimation);
+
         firstNum = Double.parseDouble(textView.getText().toString());
         double rad = Math.toRadians(firstNum);
         result = Math.cos(rad);
@@ -180,6 +203,10 @@ public class secondScreenActivity extends AppCompatActivity {
     }
 
     public void funcTan(View view) {
+
+        Animation blinkanimation = AnimationUtils.loadAnimation(this, R.anim.blinkanimation);
+        view.startAnimation(blinkanimation);
+
         firstNum = Double.parseDouble(textView.getText().toString());
         double rad = Math.toRadians(firstNum);
         result = Math.tan(rad);
@@ -189,14 +216,17 @@ public class secondScreenActivity extends AppCompatActivity {
     }
 
     public void funcSqrt(View view) {
+
+        Animation blinkanimation = AnimationUtils.loadAnimation(this, R.anim.blinkanimation);
+        view.startAnimation(blinkanimation);
+
         firstNum = Double.parseDouble(textView.getText().toString());
-        if(firstNum>0) {
+        if (firstNum > 0) {
             result = Math.sqrt(firstNum);
             textView.setText(format(result));
             after_calc = true;
-        }
-        else{
-            Toast.makeText(this,"Your number is not a positive number so a root is not possible at the moment.",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Your number is not a positive number so a root is not possible at the moment.", Toast.LENGTH_LONG).show();
         }
     }
 }
