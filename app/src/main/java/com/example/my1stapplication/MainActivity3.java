@@ -37,41 +37,41 @@ public class MainActivity3 extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-        EditText email = findViewById(R.id.emailText);
-        EditText password = findViewById(R.id.passwordText);
+        String email = emailText.getText().toString();
+        String password = passText.getText().toString();
 
         SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
 
         if (sharedPreferences.getString("keye", null) != null) {
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("keye", email.getText().toString());
-            editor.putString("keyp", password.getText().toString());
+            editor.putString("keye", email);
+            editor.putString("keyp", password);
         }
 
     }
 
 
-    public void register(View view) {
+    public void registerPage(View view) {
 
         Animation rotateanimation = AnimationUtils.loadAnimation(this, R.anim.rotateanimation);
         view.startAnimation(rotateanimation);
 
-        Intent intent = new Intent(MainActivity3.this, RegisterPage.class);
+        Intent intentReg = new Intent(this, RegisterPage.class);
         // intent.putExtra(KEY,String.valueOf(format(lastResult)));
-        startActivity(intent);
+        startActivity(intentReg);
     }
 
     public void login(View view) {
 
-        EditText email = findViewById(R.id.emailText);
-        EditText password = findViewById(R.id.passwordText);
+        String email = emailText.getText().toString();
+        String password = passText.getText().toString();
 
         SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
 
         if (sharedPreferences.getString("keye", null) == null) {
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("keye", email.getText().toString());
-            editor.putString("keyp", password.getText().toString());
+            editor.putString("keye", email);
+            editor.putString("keyp", password);
 
             editor.apply();
         }
@@ -79,8 +79,7 @@ public class MainActivity3 extends AppCompatActivity {
         Animation rotateanimation = AnimationUtils.loadAnimation(this, R.anim.rotateanimation);
         view.startAnimation(rotateanimation);
 
-        String email = emailText.getText().toString();
-        String password = passText.getText().toString();
+
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -92,9 +91,9 @@ public class MainActivity3 extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
 
-                            Intent intent = new Intent(MainActivity3.this, MainActivity.class);
+                            Intent intentLogin = new Intent(MainActivity3.this, MainActivity.class);
                             // intent.putExtra(KEY,String.valueOf(format(lastResult)));
-                            startActivity(intent);
+                            startActivity(intentLogin);
 
                         } else {
                             // If sign in fails, display a message to the user.

@@ -13,12 +13,12 @@ public class User {
     private String  password;
 
 
-    public User(String name, String email,String phone, String address, String password){
+    public User(String name, String phone, String address,String email, String password){
 
         this.name=name;
-        this.email=email;
         this.phone=phone;
         this.address=address;
+        this.email=email;
         this.password=password;
 
     }

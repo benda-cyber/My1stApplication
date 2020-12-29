@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 public class RegisterPage extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -26,6 +27,7 @@ public class RegisterPage extends AppCompatActivity {
     EditText address;
     EditText email;
     EditText password;
+    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class RegisterPage extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.registerPassword);
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+
 
     }
     public void register(View view) {
@@ -51,6 +55,7 @@ public class RegisterPage extends AppCompatActivity {
         String emailStr = email.getText().toString();
         String passwordStr = password.getText().toString();
 
+        User newUser = new User(nameStr,phoneStr,addressStr,emailStr,passwordStr);
 
         mAuth.createUserWithEmailAndPassword(emailStr, passwordStr).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
@@ -61,14 +66,11 @@ public class RegisterPage extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                         FirebaseUser user = mAuth.getCurrentUser();
 
-
-                        FirebaseUser User = FirebaseAuth.getInstance().getCurrentUser();
                         String uid = user.getUid();
 
-                        FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference("users").child(uid);
 
-                        com.example.my1stapplication.User u = new User();
+                        com.example.my1stapplication.User u = new User(nameStr,phoneStr,addressStr,emailStr,passwordStr);
                         myRef.setValue(u);
 
 
@@ -79,10 +81,7 @@ public class RegisterPage extends AppCompatActivity {
                     }
 
                 }
-    });
-}
-
-
-
+        });
     }
+
 }
