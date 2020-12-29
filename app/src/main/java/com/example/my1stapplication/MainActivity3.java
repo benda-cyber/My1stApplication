@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -30,6 +32,8 @@ public class MainActivity3 extends AppCompatActivity {
         passText = findViewById(R.id.passwordText);
 
         mAuth = FirebaseAuth.getInstance();
+
+
     }
 
 
@@ -37,6 +41,9 @@ public class MainActivity3 extends AppCompatActivity {
     }
 
     public void login(View view) {
+
+        Animation rotateanimation = AnimationUtils.loadAnimation(this, R.anim.rotateanimation);
+        view.startAnimation(rotateanimation);
 
         String email = emailText.getText().toString();
         String password = passText.getText().toString();
