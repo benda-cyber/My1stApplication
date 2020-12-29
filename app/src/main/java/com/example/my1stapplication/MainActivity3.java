@@ -38,6 +38,11 @@ public class MainActivity3 extends AppCompatActivity {
 
 
     public void register(View view) {
+
+        Animation rotateanimation = AnimationUtils.loadAnimation(this, R.anim.rotateanimation);
+        view.startAnimation(rotateanimation);
+
+
     }
 
     public void login(View view) {
