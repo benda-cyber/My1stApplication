@@ -45,38 +45,9 @@ public class MainActivity3 extends AppCompatActivity {
         Animation rotateanimation = AnimationUtils.loadAnimation(this, R.anim.rotateanimation);
         view.startAnimation(rotateanimation);
 
-        String email = emailText.getText().toString();
-        String password = passText.getText().toString();
-
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(MainActivity3.this, "Registered successfully.",
-                                    Toast.LENGTH_SHORT).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-
-                            FirebaseUser User = FirebaseAuth.getInstance().getCurrentUser();
-                            String uid = user.getUid();
-
-                            FirebaseDatabase database = FirebaseDatabase.getInstance();
-                            DatabaseReference myRef = database.getReference("users").child(uid);
-
-                            com.example.my1stapplication.User u = new User();
-                            myRef.setValue(u);
-
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(MainActivity3.this, "Registration failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                });
+        Intent intent = new Intent(MainActivity3.this, RegisterPage.class);
+        // intent.putExtra(KEY,String.valueOf(format(lastResult)));
+        startActivity(intent);
     }
 
     public void login(View view) {
