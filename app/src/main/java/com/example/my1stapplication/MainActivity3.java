@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -36,6 +37,16 @@ public class MainActivity3 extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
+        EditText email = findViewById(R.id.emailText);
+        EditText password = findViewById(R.id.passwordText);
+
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+
+        if (sharedPreferences.getString("keye", null) != null) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("keye", email.getText().toString());
+            editor.putString("keyp", password.getText().toString());
+        }
 
     }
 
@@ -51,6 +62,19 @@ public class MainActivity3 extends AppCompatActivity {
     }
 
     public void login(View view) {
+
+        EditText email = findViewById(R.id.emailText);
+        EditText password = findViewById(R.id.passwordText);
+
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+
+        if (sharedPreferences.getString("keye", null) == null) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("keye", email.getText().toString());
+            editor.putString("keyp", password.getText().toString());
+
+            editor.apply();
+        }
 
         Animation rotateanimation = AnimationUtils.loadAnimation(this, R.anim.rotateanimation);
         view.startAnimation(rotateanimation);
