@@ -12,7 +12,7 @@
         android:id="@+id/textViewResult"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.5"
+        android:layout_weight="0.75"
         android:gravity="center"
         android:textSize="56sp" />
 
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/buttonstyle"
+            android:background="@drawable/operandstyle"
             android:onClick="funcReg"
             android:text="reg"
             android:textSize="18sp" />
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/buttonstyle"
+            android:background="@drawable/operandstyle"
             android:onClick="funcOperator"
             android:text="^"
             android:textSize="18sp" />
@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/buttonstyle"
+            android:background="@drawable/operandstyle"
             android:onClick="funcSqrt"
             android:text="sqrt"
             android:textSize="18sp" />
@@ -122,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/buttonstyle"
+            android:background="@drawable/operandstyle"
             android:onClick="funcFactorial"
             android:text="!"
             android:textSize="18sp" />
@@ -132,7 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/buttonstyle"
+            android:background="@drawable/operandstyle"
             android:onClick="funcOperator"
             android:text="root"
             android:textSize="18sp" />
@@ -189,7 +189,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/buttonstyle"
+            android:background="@drawable/operandstyle"
             android:onClick="funcOperator"
             android:text="%"
             android:textSize="18sp" />
@@ -199,7 +199,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/buttonstyle"
+            android:background="@drawable/operandstyle"
             android:onClick="funcPI"
             android:text="PI"
             android:textSize="18sp" />
@@ -255,7 +255,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/buttonstyle"
+            android:background="@drawable/operandstyle"
             android:onClick="funcSin"
             android:text="SIN"
             android:textSize="18sp" />
@@ -265,16 +265,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/buttonstyle"
+            android:background="@drawable/operandstyle"
             android:onClick="funcCos"
             android:text="COS"
             android:textSize="18sp" />
+
         <Button
             android:id="@+id/buttonTan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/buttonstyle"
+            android:background="@drawable/operandstyle"
             android:onClick="funcTan"
             android:text="TAN"
             android:textSize="18sp" />
