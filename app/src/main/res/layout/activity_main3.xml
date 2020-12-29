@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#716E83"
+    tools:context=".MainActivity3">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="user:"
+        android:textSize="36sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="124dp" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="124dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="password:"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="279dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="266dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="239dp"
+        android:layout_height="79dp"
+        android:background="@drawable/buttonstyle"
+        android:text="login"
+        tools:layout_editor_absoluteX="86dp"
+        tools:layout_editor_absoluteY="385dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="242dp"
+        android:layout_height="85dp"
+        android:background="@drawable/operandstyle"
+        android:text="sign in"
+        tools:layout_editor_absoluteX="86dp"
+        tools:layout_editor_absoluteY="490dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

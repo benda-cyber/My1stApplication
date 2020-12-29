@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     boolean after_calc = false;
 
     private final String KEY="KEY";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textViewResult);
         textView.setText("");
+
     }
+
 
     public void funcNumbers(View view) {
 

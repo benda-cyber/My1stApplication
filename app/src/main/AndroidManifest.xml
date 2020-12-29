@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.My1stApplication">
-        <activity android:name=".secondScreenActivity"
-            android:screenOrientation="landscape"></activity>
+        <activity android:name=".MainActivity3"></activity>
+        <activity
+            android:name=".secondScreenActivity"
+            android:screenOrientation="landscape" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
