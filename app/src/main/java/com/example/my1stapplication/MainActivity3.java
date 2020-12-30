@@ -44,9 +44,14 @@ public class MainActivity3 extends AppCompatActivity {
 
         if (sharedPreferences.getString("keye", null) != null) {
 
+            FirebaseUser user = mAuth.getCurrentUser();
+            String uid = user.getUid();
+
             emailText.setText(sharedPreferences.getString("keye",null));
             passText.setText(sharedPreferences.getString("keyp",null));
-
+            Intent intentCalc = new Intent(this, MainActivity.class);
+            intentCalc.putExtra("Kuid",uid);
+            startActivity(intentCalc);
 
         }
 
@@ -59,7 +64,7 @@ public class MainActivity3 extends AppCompatActivity {
         view.startAnimation(rotateanimation);
 
         Intent intentReg = new Intent(this, RegisterPage.class);
-        // intent.putExtra(KEY,String.valueOf(format(lastResult)));
+
         startActivity(intentReg);
     }
 
@@ -74,7 +79,6 @@ public class MainActivity3 extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("keye", email);
             editor.putString("keyp", password);
-
 
 
             editor.apply();

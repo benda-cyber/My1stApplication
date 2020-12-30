@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         if(getIntent().getStringExtra("uidkey")!=null){
             uid = getIntent().getStringExtra("uidkey");
         }
+        if(getIntent().getStringExtra("Kuid")!=null){
+            uid = getIntent().getStringExtra("Kuid");
+        }
         Toast.makeText(this,"Your uid is : " + uid ,Toast.LENGTH_LONG).show();
         textView = findViewById(R.id.textViewResult);
         textView.setText("");
