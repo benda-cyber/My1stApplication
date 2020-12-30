@@ -43,10 +43,11 @@ public class MainActivity3 extends AppCompatActivity {
         SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
 
         if (sharedPreferences.getString("keye", null) != null) {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("keye", email);
-            editor.putString("keyp", password);
-            Toast.makeText(MainActivity3.this, "Login worked.", Toast.LENGTH_SHORT).show();
+
+            emailText.setText(sharedPreferences.getString("keye",null));
+            passText.setText(sharedPreferences.getString("keyp",null));
+
+
         }
 
     }
@@ -75,6 +76,7 @@ public class MainActivity3 extends AppCompatActivity {
             editor.putString("keyp", password);
 
 
+
             editor.apply();
         }
 
@@ -93,9 +95,11 @@ public class MainActivity3 extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
 
+                            String uid = user.getUid();
+
 
                             Intent intentLogin = new Intent(MainActivity3.this, MainActivity.class);
-                            // intent.putExtra(KEY,String.valueOf(format(lastResult)));
+                            intentLogin.putExtra("uidkey",uid);
                             startActivity(intentLogin);
 
                         } else {
@@ -111,5 +115,20 @@ public class MainActivity3 extends AppCompatActivity {
                 });
     }
 
+    //    myRef.addValueEventListener(new ValueEventListener() {
+    //        @Override
+    //        public void onDataChange(DataSnapshot dataSnapshot) {
+    //            // This method is called once with the initial value and again
+    //            // whenever data at this location is updated.
+    //            String value = dataSnapshot.getValue(String.class);
+    //            Log.d(TAG, "Value is: " + value);
+    //        }
+    //
+    //        @Override
+    //        public void onCancelled(DatabaseError error) {
+    //            // Failed to read value
+    //            Log.w(TAG, "Failed to read value.", error.toException());
+    //        }
+    //    });
 
 }

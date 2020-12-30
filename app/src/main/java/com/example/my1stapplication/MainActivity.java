@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     double lastResult;
     char operator;
     boolean after_calc = false;
-
+    String uid;
     private final String KEY="KEY";
 
 
@@ -32,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(getIntent().getStringExtra("keyuid")!=null){
+            uid = getIntent().getStringExtra("keyuid");
+        }
+        if(getIntent().getStringExtra("uidkey")!=null){
+            uid = getIntent().getStringExtra("uidkey");
+        }
+        Toast.makeText(this,"Your uid is : " + uid ,Toast.LENGTH_LONG).show();
         textView = findViewById(R.id.textViewResult);
         textView.setText("");
 

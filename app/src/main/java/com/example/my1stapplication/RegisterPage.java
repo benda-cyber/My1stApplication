@@ -29,6 +29,7 @@ public class RegisterPage extends AppCompatActivity {
     EditText email;
     EditText password;
     FirebaseDatabase database;
+    String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +68,7 @@ public class RegisterPage extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                         FirebaseUser user = mAuth.getCurrentUser();
 
-                        String uid = user.getUid();
+                        uid = user.getUid();
 
                         DatabaseReference myRef = database.getReference("users").child(uid);
 
@@ -75,7 +76,7 @@ public class RegisterPage extends AppCompatActivity {
                         myRef.setValue(u);
 
                         Intent intentLogin = new Intent(RegisterPage.this, MainActivity.class);
-                        // intent.putExtra(KEY,String.valueOf(format(lastResult)));
+                        intentLogin.putExtra("keyuid",uid);
                         startActivity(intentLogin);
 
 
