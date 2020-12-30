@@ -46,6 +46,7 @@ public class MainActivity3 extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("keye", email);
             editor.putString("keyp", password);
+            Toast.makeText(MainActivity3.this, "Login worked.", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -73,6 +74,7 @@ public class MainActivity3 extends AppCompatActivity {
             editor.putString("keye", email);
             editor.putString("keyp", password);
 
+
             editor.apply();
         }
 
@@ -90,6 +92,7 @@ public class MainActivity3 extends AppCompatActivity {
                             Toast.makeText(MainActivity3.this, "Login worked.",
                                     Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
+
 
                             Intent intentLogin = new Intent(MainActivity3.this, MainActivity.class);
                             // intent.putExtra(KEY,String.valueOf(format(lastResult)));

@@ -3,6 +3,7 @@ package com.example.my1stapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -55,7 +56,7 @@ public class RegisterPage extends AppCompatActivity {
         String emailStr = email.getText().toString();
         String passwordStr = password.getText().toString();
 
-        User newUser = new User(nameStr,phoneStr,addressStr,emailStr,passwordStr);
+//        User newUser = new User(nameStr,phoneStr,addressStr,emailStr,passwordStr);
 
         mAuth.createUserWithEmailAndPassword(emailStr, passwordStr).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
@@ -70,8 +71,12 @@ public class RegisterPage extends AppCompatActivity {
 
                         DatabaseReference myRef = database.getReference("users").child(uid);
 
-                        com.example.my1stapplication.User u = new User(nameStr,phoneStr,addressStr,emailStr,passwordStr);
+                        User u = new User(nameStr,phoneStr,addressStr,emailStr,passwordStr);
                         myRef.setValue(u);
+
+                        Intent intentLogin = new Intent(RegisterPage.this, MainActivity.class);
+                        // intent.putExtra(KEY,String.valueOf(format(lastResult)));
+                        startActivity(intentLogin);
 
 
                     } else {
